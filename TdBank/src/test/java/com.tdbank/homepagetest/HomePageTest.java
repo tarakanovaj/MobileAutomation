@@ -3,14 +3,15 @@ package com.tdbank.homepagetest;
 import com.td.pages.HomePage;
 import com.td.pages.LoginPage;
 import com.tdbank.datatest.DataProviderTest;
-import common.TestBase;
+
 import org.apache.log4j.Logger;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import reporting.ExtentTestManager;
 
-public class HomePageTest extends TestBase {
+public class HomePageTest {
 
 private static final Logger logger = Logger.getLogger(HomePageTest.class);
 
@@ -18,6 +19,7 @@ private static final Logger logger = Logger.getLogger(HomePageTest.class);
     LoginPage loginPage;
     @Test(enabled = false)
     public void validateUserCanClickONAccountsButtonTest(){
+        WebDriver driver = null;
         homePage = PageFactory.initElements(driver,HomePage.class);
         loginPage = PageFactory.initElements(driver,LoginPage.class);
         Assert.assertTrue(homePage.accountsDisplay());
@@ -27,6 +29,7 @@ private static final Logger logger = Logger.getLogger(HomePageTest.class);
     }
     @Test(enabled = false)
     public void validateUserCanClickOnTransferButtonTest() {
+        WebDriver driver = null;
         homePage = PageFactory.initElements(driver,HomePage.class);
         homePage.clickOnTransferBtn();
         Assert.assertTrue(homePage.transferButtonDisplay());
@@ -34,6 +37,7 @@ private static final Logger logger = Logger.getLogger(HomePageTest.class);
     }
     @Test(dataProviderClass = DataProviderTest.class,dataProvider = "logInPageCredential")
     public void validateUserEnterCredentialTest(String usr , String pass){
+        WebDriver driver = null;
         homePage = PageFactory.initElements(driver,HomePage.class);
         loginPage = PageFactory.initElements(driver,LoginPage.class);
         homePage.clickOnAccounts();

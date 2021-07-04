@@ -1,10 +1,10 @@
 package com.td.pages;
 
-import common.TestBase;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class ProductPage extends TestBase {
+public class ProductPage {
 
     @FindBy(xpath = "//android.widget.TextView[@text='Products']")
     WebElement productButton;
@@ -30,6 +30,12 @@ public class ProductPage extends TestBase {
         checkingAccount.click();
         sleep(10);
         functionSwipe("Up",200,200);
+    }
+
+    private void sleep(int i) {
+    }
+
+    private void functionSwipe(String up, int i, int i1) {
     }
 
     public boolean textOnCheckingAccount(){
